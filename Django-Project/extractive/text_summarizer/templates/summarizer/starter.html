@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} Summarizer {% endblock title %}
+
+{% block sumactive %} active {% endblock sumactive %}
+
+{% block body %}
+
+<!--code for adding form-->
+<div class="container bg-primary">
+    <form action='/summarizer/output/' method='post'>
+          {% csrf_token %}
+
+        <!--  code for text area-->
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1"><h2 class="text-secondary">Summarizer</h2></label>
+            <textarea placeholder="Enter your input text here..." class="form-control" name='input_text'
+                      id="exampleFormControlTextarea1" rows="10"></textarea>
+        </div>
+
+
+        <!--Adding Analyze Text Button-->
+
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-secondary mt-2 mx-2 ">Summarize Now</button>
+            <button type="button" class="btn btn-secondary mt-2 mx-2"
+                    onclick="document.getElementById('exampleFormControlTextarea1').value = ''">Clear Text
+            </button>
+
+        </div>
+
+</div>
+
+</form>
+
+<div class="container ">
+    <form action='/summarizer/upload/' method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="myFileInput"><h3 class="text-secondary">Upload Document</h3></label>
+            <input type="file" name="file" class="form-control-file " id="myFileInput">
+            <button type="submit" class="btn btn-secondary mt-3">Summarize</button>
+
+        </div>
+
+    </form>
+
+
+</div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+

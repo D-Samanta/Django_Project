@@ -1,0 +1,58 @@
+{% extends 'summarizer/student_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h3 {
+
+      color: #105a5a;
+
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+
+
+
+
+    </style>
+</head>
+<br><br>
+
+
+<div class="content ">
+    <form action='{% url "file_output" %}' method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="myFileInput"><h3 class="display-2">Upload Text File </h3></label>
+
+            <input type="file" name="file" class="form-control-file my-2" id="myFileInput">
+
+            <div class="text-left mt-4">
+                <button type="submit" class="btn btn-success">Summarize</button>
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>
+
+
+<br><br><br><br><br><br>
+{% endblock content %}

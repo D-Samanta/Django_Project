@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} Summarizer {% endblock title %}
+
+{% block sumactive %} active {% endblock sumactive %}
+
+{% block body %}
+<div class="div container mt-2">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.username.label}}
+        {{form.username}}
+        <br><br>
+
+        {{form.email.label}}
+        {{form.email}}
+        <br> <br><br>
+        {{form.first_name.label}}
+        {{form.first_name}}
+        <br> <br><br>
+        {{form.last_name.label}}
+        {{form.last_name}}
+        <br> <br><br>
+        {{form.password1.label}}
+        {{form.password1}}
+        <br> <br><br>
+        {{form.password2.label}}
+        {{form.password2}}
+        <br> <br><br>
+
+
+        <!--        {% for field in form %}-->
+        <!--          {{field.label}}-->
+        <!--         {{field}}-->
+        <!--        {% endfor %}-->
+
+
+        <input type="submit" name="create User">
+    </form>
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

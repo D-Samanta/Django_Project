@@ -1,0 +1,60 @@
+{% extends 'summarizer/student_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+    <!--    code by d samanta-->
+
+       .submit_btn:hover {
+      background: #c04240;
+      color: green
+    }
+  </style>
+</head>
+<br><br>
+<div class="container">
+<div class="col text-center">
+            <div class="container">
+                <form action='{% url "text_output" %}' method='post'>
+                    {% csrf_token %}
+
+                    <!--  code for text area-->
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"><h3 class="text-secondary">Input Text</h3></label>
+                        <textarea placeholder="Enter your input text here..." class="form-control" name='input_text'
+                                  id="exampleFormControlTextarea1" rows="16"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" style="color: white; background: green;" >Summarize</button>
+                        <button type="button" style="color: white; background: red;"
+                                onclick="document.getElementById('exampleFormControlTextarea1').value = ''">Clear
+                            Text
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

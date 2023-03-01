@@ -1,0 +1,54 @@
+{% extends 'summarizer/student_base.html' %}
+
+{% block content %}
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<!--<div class="jumbotron" style="margin-bottom:0px;">-->
+
+
+<div class="row my-3">
+    <div class="col d-flex align-items-stretch ">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active font-weight-bold" aria-current="page">Input Text</li>
+                <li class="breadcrumb-item active font-weight-bold" aria-current="page">{{input_len}}
+                    Characters
+                </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col d-flex align-items-stretch">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active font-weight-bold" aria-current="page">Summarized Text</li>
+                <li class="breadcrumb-item active font-weight-bold" aria-current="page">{{summary_len}}
+                    Characters
+                </li>
+                <li class="breadcrumb-item active font-weight-bold" aria-current="page">Reduction {{reduce}} %
+                </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="w-100"></div>
+    <div class="col ">
+        <textarea class="text-justify font-weight-light" style="resize: none; width: 230px; height: 400px;">{{input_text}}</textarea>
+    </div>
+    <div class="col">
+        <textarea class="text-justify font-weight-light" style="resize: none; width: 230px; height: 400px;">{{summary_output}}</textarea>
+    </div>
+</div>
+
+<div>
+    <p class="lead">
+        <a class="btn btn-primary " href="{% url 'after_login' %}" style="border-radius: 0%;" role="button">Home</a>
+        <a class="btn btn-warning " href="{% url 'download' %}" style="border-radius: 0%;" role="button">Download</a>
+    </p>
+    <br><br><br><br><br><br>
+</div>
+<!--</div>-->
+
+
+{% endblock %}
